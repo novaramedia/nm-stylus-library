@@ -47,6 +47,24 @@ font-size-maker($breakpoint = false, $larger-scale = true)
         line-height: $line-height-scale[i] * 1em
         letter-spacing: $letter-spacing-scale[i] * 1rem
 
+font-size-single($font-size = 10, $larger-scale = true)
+  // 11 step scale with 2 variations.
+  // Smaller scale is for mobile, larger scale is for desktop.
+  // This function generates a single class for a specific size.
+
+  $offset-to-root = 7 // this centers the scale on the root size which is 1rem. the helper classes center at .font-size-10
+
+  $index-of-font-size = $font-size - $offset-to-root
+
+  if $larger-scale
+    font-size: $large-scale[$index-of-font-size] * 1rem
+    line-height: $line-height-scale[$index-of-font-size] * 1em
+    letter-spacing: $letter-spacing-scale[$index-of-font-size] * 1rem
+  else
+    font-size: $small-scale[$index-of-font-size] * 1rem
+    line-height: $line-height-scale[$index-of-font-size] * 1em
+    letter-spacing: $letter-spacing-scale[$index-of-font-size] * 1rem
+
 // GENERATE FONT SIZES
 
 font-size-maker()
@@ -128,6 +146,10 @@ article
 .text-copy
   p
     font-family: var(--font-family-serif)
+  h1, h2, h3, h4, h5, h6
+    font-family: var(--font-family-sans)
+    font-weight: 700
+    font-size-single(12)
   p, ul, ol
     font-size: 1.3rem // this should be deprecated as an implementation by @4.3.0
     line-height: 1.55 // this should be deprecated as an implementation by @4.3.0
