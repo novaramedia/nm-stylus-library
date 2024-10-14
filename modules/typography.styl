@@ -1,6 +1,6 @@
 html
   font-family: var(--font-family-sans)
-  font-size: 15px
+  font-size: 16px
   letter-spacing: 0.01rem
 
 body
@@ -22,7 +22,7 @@ body
 $large-scale = 0.5625 0.75 0.875 1 1.25 1.5 2 2.5 3 3.75 4.5
 $small-scale = 0.57142857 0.71428571 0.85714286 1 1.14285714 1.35714286 1.71428571 2.28571429 2.85714286 3.42857143 4.28571429
 $line-height-scale = 1.2 1.2 1.2 1.2 1.1 1.1 1 1 1 1 1
-$letter-spacing-scale = 0.02813 0.02975 0.01094 0.01 0.025 0.01 0.01 0.01 0.01 0.01 0.01
+$letter-spacing-scale = 0.04 0.03 0.01 0.01 -0.01 -0.01 -0.01 -0.01 -0.02 -0.02 -0.02
 
 font-size-maker($breakpoint = false, $larger-scale = true)
   // 11 step scale with 2 variations.
@@ -40,12 +40,12 @@ font-size-maker($breakpoint = false, $larger-scale = true)
       {$prefix}{i+$offset-to-root}
         font-size: $large-scale[i] * 1rem
         line-height: $line-height-scale[i] * 1em
-        letter-spacing: $letter-spacing-scale[i] * 1rem
+        letter-spacing: $letter-spacing-scale[i] * 1em
     else
       {$prefix}{i+$offset-to-root}
         font-size: $small-scale[i] * 1rem
         line-height: $line-height-scale[i] * 1em
-        letter-spacing: $letter-spacing-scale[i] * 1rem
+        letter-spacing: $letter-spacing-scale[i] * 1em
 
 font-size-single($font-size = 10, $larger-scale = true)
   // 11 step scale with 2 variations.
