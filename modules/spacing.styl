@@ -20,11 +20,13 @@ spacer-maker($class, $property, $steps = 12)
 
 // TODO: make a repeat function to generate all the classes and actually generate them for all sizes
 
+spacer-maker('m', 'margin')
 spacer-maker('mt', 'margin-top')
 spacer-maker('mb', 'margin-bottom')
 spacer-maker('ml', 'margin-left')
 spacer-maker('mr', 'margin-right')
 
+spacer-maker('p', 'padding')
 spacer-maker('pt', 'padding-top')
 spacer-maker('pb', 'padding-bottom')
 spacer-maker('pl', 'padding-left')
@@ -32,22 +34,26 @@ spacer-maker('pr', 'padding-right')
 
 
 @media screen and (max-width: $breakpoint-xl)
+  spacer-maker('m-xl', 'margin')
   spacer-maker('mt-xl', 'margin-top')
   spacer-maker('mb-xl', 'margin-bottom')
   spacer-maker('ml-xl', 'margin-left')
   spacer-maker('mr-xl', 'margin-right')
 
+  spacer-maker('p-xl', 'padding')
   spacer-maker('pt-xl', 'padding-top')
   spacer-maker('pb-xl', 'padding-bottom')
   spacer-maker('pl-xl', 'padding-left')
   spacer-maker('pr-xl', 'padding-right')
 
 @media screen and (max-width: $breakpoint-l)
+  spacer-maker('m-l', 'margin')
   spacer-maker('mt-l', 'margin-top')
   spacer-maker('mb-l', 'margin-bottom')
   spacer-maker('ml-l', 'margin-left')
   spacer-maker('mr-l', 'margin-right')
 
+  spacer-maker('p-l', 'padding')
   spacer-maker('pt-l', 'padding-top')
   spacer-maker('pb-l', 'padding-bottom')
   spacer-maker('pl-l', 'padding-left')
@@ -55,24 +61,27 @@ spacer-maker('pr', 'padding-right')
 
 
 @media screen and (max-width: $breakpoint-m)
+  spacer-maker('m-m', 'margin')
   spacer-maker('mt-m', 'margin-top')
   spacer-maker('mb-m', 'margin-bottom')
   spacer-maker('ml-m', 'margin-left')
   spacer-maker('mr-m', 'margin-right')
 
+  spacer-maker('p-m', 'padding')
   spacer-maker('pt-m', 'padding-top')
   spacer-maker('pb-m', 'padding-bottom')
   spacer-maker('pl-m', 'padding-left')
   spacer-maker('pr-m', 'padding-right')
 
-  spacer-maker('pb-m', 'padding-bottom')
 
 @media screen and (max-width: $breakpoint-s)
+  spacer-maker('m-s', 'margin')
   spacer-maker('mt-s', 'margin-top')
   spacer-maker('mb-s', 'margin-bottom')
   spacer-maker('ml-s', 'margin-left')
   spacer-maker('mr-s', 'margin-right')
 
+  spacer-maker('p-s', 'padding')
   spacer-maker('pt-s', 'padding-top')
   spacer-maker('pb-s', 'padding-bottom')
   spacer-maker('pl-s', 'padding-left')
