@@ -18,6 +18,8 @@ spacer-maker($class, $property, $steps = 12)
 // I was having an inexplicible issue with the above function. The output unit was becoming ks-rem.
 // https://stackoverflow.com/questions/77217205/stylus-css-prepending-ks-to-css-rem-unit-why
 
+// TODO: make a repeat function to generate all the classes and actually generate them for all sizes
+
 spacer-maker('mt', 'margin-top')
 spacer-maker('mb', 'margin-bottom')
 spacer-maker('ml', 'margin-left')
@@ -62,6 +64,8 @@ spacer-maker('pr', 'padding-right')
   spacer-maker('pb-m', 'padding-bottom')
   spacer-maker('pl-m', 'padding-left')
   spacer-maker('pr-m', 'padding-right')
+
+  spacer-maker('pb-m', 'padding-bottom')
 
 @media screen and (max-width: $breakpoint-s)
   spacer-maker('mt-s', 'margin-top')
