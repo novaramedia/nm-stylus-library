@@ -152,6 +152,7 @@ formElementBase() // This could be a class that is extended rather than a mixin
   formElementBase()
   font-weight: 700
   text-align: center
+  text-decoration: none !important;
   width: auto
   &:hover
     background-color: transparent
@@ -200,11 +201,6 @@ formElementBase() // This could be a class that is extended rather than a mixin
       background-color: var(--color-gray-light)
       color: var(--color-black-soft)
       cursor: not-allowed
-
-  &--small-text
-    font-weight: 500
-    font-size: 1rem
-
 
 .ui-input
   formElementBase()
@@ -261,11 +257,11 @@ hr
 .ui-border--black
   border-color: var(--color-black-soft)
 
-@media screen and (max-width: $breakpoint-m)
+@media screen and (max-width: 910px)
   .ui-border--not-m
     border: none !important
 
-@media screen and (max-width: $breakpoint-s)
+@media screen and (max-width: 759px)
   .ui-border--not-s
     border: none !important
 
