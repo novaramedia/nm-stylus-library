@@ -1,4 +1,3 @@
-{$property}: ($value * $unit)
 spacer-maker($class, $property, $steps = 12, $unit = 1rem)
   for $i in 0..$steps
     if $i < 5
@@ -11,7 +10,7 @@ spacer-maker($class, $property, $steps = 12, $unit = 1rem)
     $value = $multiplier * $step
 
     .{$class}-{$i}
-      {$property}: $value * $unit
+      {$property}: ($value * $unit)
 
 // I was having an inexplicible issue with the above function. The output unit was becoming ks-rem.
 // https://stackoverflow.com/questions/77217205/stylus-css-prepending-ks-to-css-rem-unit-why
