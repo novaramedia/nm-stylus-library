@@ -1,3 +1,8 @@
+$breakpoint-s = 759px
+$breakpoint-m = 910px
+$breakpoint-l = 1104px
+$breakpoint-xl = 1408px
+
 html
   // layout
   --grid-gutter: 1rem
@@ -31,10 +36,10 @@ html
   --transition-speed-medium: 420ms
   --transition-speed-quick: 140ms
   --transition-speed-ultra: 33ms
-
-$breakpoint-s = 759px
-$breakpoint-m = 910px
-$breakpoint-l = 1104px
-$breakpoint-xl = 1408px
+  // breakpoints (derived from Stylus vars)
+  --breakpoint-s = $breakpoint-s
+  --breakpoint-m = $breakpoint-m
+  --breakpoint-l = $breakpoint-l
+  --breakpoint-xl = $breakpoint-xl
 
 $golden-ratio = 1.61803398875
