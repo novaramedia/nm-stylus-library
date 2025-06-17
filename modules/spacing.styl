@@ -1,0 +1,85 @@
+spacer-maker($class, $property, $steps = 12, $unit = 1rem)
+  for $i in 0..$steps
+    if $i < 5
+      $step = .25
+      $multiplier = $i
+    else
+      $step = 1
+      $multiplier = $i - 3
+
+    $value = $multiplier * $step
+
+    .{$class}-{$i}
+      {$property}: ($value * $unit)
+
+// I was having an inexplicible issue with the above function. The output unit was becoming ks-rem.
+// https://stackoverflow.com/questions/77217205/stylus-css-prepending-ks-to-css-rem-unit-why
+
+// TODO: make a repeat function to generate all the classes and actually generate them for all sizes
+
+spacer-maker('m', 'margin')
+spacer-maker('mt', 'margin-top')
+spacer-maker('mb', 'margin-bottom')
+spacer-maker('ml', 'margin-left')
+spacer-maker('mr', 'margin-right')
+
+spacer-maker('p', 'padding')
+spacer-maker('pt', 'padding-top')
+spacer-maker('pb', 'padding-bottom')
+spacer-maker('pl', 'padding-left')
+spacer-maker('pr', 'padding-right')
+
+
+@media screen and (max-width: 1408px)
+  spacer-maker('m-xl', 'margin')
+  spacer-maker('mt-xl', 'margin-top')
+  spacer-maker('mb-xl', 'margin-bottom')
+  spacer-maker('ml-xl', 'margin-left')
+  spacer-maker('mr-xl', 'margin-right')
+
+  spacer-maker('p-xl', 'padding')
+  spacer-maker('pt-xl', 'padding-top')
+  spacer-maker('pb-xl', 'padding-bottom')
+  spacer-maker('pl-xl', 'padding-left')
+  spacer-maker('pr-xl', 'padding-right')
+
+@media screen and (max-width: 1104px)
+  spacer-maker('m-l', 'margin')
+  spacer-maker('mt-l', 'margin-top')
+  spacer-maker('mb-l', 'margin-bottom')
+  spacer-maker('ml-l', 'margin-left')
+  spacer-maker('mr-l', 'margin-right')
+
+  spacer-maker('p-l', 'padding')
+  spacer-maker('pt-l', 'padding-top')
+  spacer-maker('pb-l', 'padding-bottom')
+  spacer-maker('pl-l', 'padding-left')
+  spacer-maker('pr-l', 'padding-right')
+
+
+@media screen and (max-width: 910px)
+  spacer-maker('m-m', 'margin')
+  spacer-maker('mt-m', 'margin-top')
+  spacer-maker('mb-m', 'margin-bottom')
+  spacer-maker('ml-m', 'margin-left')
+  spacer-maker('mr-m', 'margin-right')
+
+  spacer-maker('p-m', 'padding')
+  spacer-maker('pt-m', 'padding-top')
+  spacer-maker('pb-m', 'padding-bottom')
+  spacer-maker('pl-m', 'padding-left')
+  spacer-maker('pr-m', 'padding-right')
+
+
+@media screen and (max-width: 759px)
+  spacer-maker('m-s', 'margin')
+  spacer-maker('mt-s', 'margin-top')
+  spacer-maker('mb-s', 'margin-bottom')
+  spacer-maker('ml-s', 'margin-left')
+  spacer-maker('mr-s', 'margin-right')
+
+  spacer-maker('p-s', 'padding')
+  spacer-maker('pt-s', 'padding-top')
+  spacer-maker('pb-s', 'padding-bottom')
+  spacer-maker('pl-s', 'padding-left')
+  spacer-maker('pr-s', 'padding-right')
