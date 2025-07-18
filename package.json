@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/novaramedia/nm-stylus-library#readme",
   "devDependencies": {
-    "release-it": "^17.6.0",
-    "@release-it/keep-a-changelog": "^5.0.0"
+    "release-it": "^19.0.4",
+    "@release-it/keep-a-changelog": "^7.0.0"
   }
 }
