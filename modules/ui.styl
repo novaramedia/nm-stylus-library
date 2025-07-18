@@ -132,7 +132,7 @@ formElementBase() // This could be a class that is extended rather than a mixin
   background-color: var(--color-white-soft)
   border: 1px solid var(--color-white-soft)
   color: var(--color-black-soft)
-  border-radius calc('var(--corner-radius) * 2')
+  border-radius var(--button-radius)
   &--small
     height: 2.1875rem
     font-size: 1rem
@@ -244,6 +244,9 @@ hr
   height: 1px
   margin: 0
   background-color: var(--color-gray-light)
+
+.ui-border
+  border: 1px solid var(--color-gray-light)
 
 .ui-border-bottom
   border-bottom: 1px solid var(--color-gray-light)
