@@ -1,0 +1,33 @@
+{
+  "git": {
+    "requireBranch": "main",
+    "commitMessage": "[Release] ${version}",
+    "tagName": "v${version}",
+    "push": true,
+    "requireCommits": true
+  },
+  "github": {
+    "release": true,
+    "releaseName": "[Release] ${version}",
+    "releaseNotes": null,
+    "draft": true,
+    "preRelease": false
+  },
+  "npm": {
+    "publish": false
+  },
+  "plugins": {
+    "@release-it/keep-a-changelog": {
+      "filename": "CHANGELOG.md",
+      "addUnreleased": true,
+      "keepUnreleased": true
+    }
+  },
+  "hooks": {
+    "before:init": ["echo 'Starting release process...'"],
+    "after:bump": ["echo 'Version bumped to ${version}'"],
+    "after:git:release": ["echo 'Git tag and commit created'"],
+    "after:github:release": ["echo 'Draft release created on GitHub'"],
+    "after:release": ["echo 'Release v${version} created as draft! Please review and publish manually.'"]
+  }
+}
