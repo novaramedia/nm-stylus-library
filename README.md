@@ -2,6 +2,10 @@
 
 This is the single source of truth for NM web design system in code.
 
+## Dependencies
+
+This library uses the Meyer css reset and Modern-normalise.css to create a consistent reset base for styling. The Meyer reset will probably not change from v2 ever again. However Modern-normalise.css might update at some point. That project had 2 updates in 2024 so the pace of change is likely to be slow. We need to check and potentially update the file every 6 months or so.
+
 ## Releases
 
 There are 2 flows for releases to this library:

@@ -7,11 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [unreleased]
 
-## [0.10.0]
-- minor updates for payment-novaramedia.com
-- added margin `m` and padding `p`
-- added space maker classes to media queries
+### Added
+
+- Meyer reset and modern-normalise inside the project
+- Single entry index.styl
+- Documentation for release flow
+
+### Changed
+
+- Implmentation of corner radius for buttons
+- Spacing unit for letter-spacing in the font size generator
+
+## [0.10.0] - 2025-04-16
+
+### Added
+
+- Added margin `m` and padding `p`
+- Added space maker classes to media queries
+
+### Changed
+
+- Minor updates for payment-novaramedia.com
 
 ## [0.9.0] - 2025-04-15
+
 ### Added
+
 - Initialised library structure and base styles
