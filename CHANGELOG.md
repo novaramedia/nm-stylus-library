@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Meyer reset and modern-normalise inside the project
 - Single entry index.styl
 - Documentation for release flow
+- release-it scripting
 
 ### Changed
 

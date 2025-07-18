@@ -29,6 +29,13 @@ At times we may want to change the way parts of this library work without this s
 - The library has a new version released
 - All projects which use the library update their package reference and then bump their releases
 
+### How to release
+
+- Checkout `main`
+- `npm run release`
+- Follow the question set
+- Publish the draft release if all correct
+
 ## Dev
 
 ### Howto: Clone this repo into the novaramediacom wp theme
