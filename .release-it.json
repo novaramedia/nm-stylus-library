@@ -24,7 +24,7 @@
     }
   },
   "hooks": {
-    "before:init": ["echo 'Starting release process...'"],
+    "before:init": ["npm run build:variables", "echo 'Starting release process...'"],
     "after:bump": ["echo 'Version bumped to ${version}'"],
     "after:git:release": ["echo 'Git tag and commit created'"],
     "after:github:release": ["echo 'Draft release created on GitHub'"],

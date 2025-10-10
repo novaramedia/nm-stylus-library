@@ -1,7 +1,11 @@
+// Breakpoint variables
 $breakpoint-s = 759px
 $breakpoint-m = 910px
 $breakpoint-l = 1104px
 $breakpoint-xl = 1408px
+
+// Constants
+$golden-ratio = 1.61803398875
 
 html
   // layout
@@ -26,12 +30,12 @@ html
   --color-lilac: #B1B1FF
   --color-gray: rgb(150,150,150)
   --color-gray-transparent: rgba(150,150,150, .5)
-  --color-gray-light: rgb(190,190,190) // Max suggesting #bab8b8 = rgb(186, 184, 184)
+  --color-gray-light: rgb(190,190,190)
   --color-gray-light-transparent: rgba(190,190,190, .5)
   --color-gray-extra-light: #EDEAEA
   // typography
-  --font-family-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-family-serif: Georgia, Times, "Times New Roman", serif;
+  --font-family-sans: "Helvetica Neue", Helvetica, Arial, sans-serif
+  --font-family-serif: Georgia, Times, "Times New Roman", serif
   // transitions
   --transition-speed-slow: 1111ms
   --transition-speed-medium: 420ms
@@ -42,5 +46,3 @@ html
   --breakpoint-m = $breakpoint-m
   --breakpoint-l = $breakpoint-l
   --breakpoint-xl = $breakpoint-xl
-
-$golden-ratio = 1.61803398875
