@@ -1,9 +1,9 @@
 {
   "breakpoints": {
-    "s": "759px",
-    "m": "910px", 
-    "l": "1104px",
-    "xl": "1408px"
+    "s": 759,
+    "m": 910, 
+    "l": 1104,
+    "xl": 1408
   },
   "layout": {
     "gridGutter": "1rem",
@@ -32,15 +32,11 @@
     "grayLightTransparent": "rgba(190,190,190, .5)",
     "grayExtraLight": "#EDEAEA"
   },
-  "typography": {
-    "fontFamilySans": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
-    "fontFamilySerif": "Georgia, Times, \"Times New Roman\", serif"
-  },
   "transitions": {
-    "speedSlow": "1111ms",
-    "speedMedium": "420ms",
-    "speedQuick": "140ms",
-    "speedUltra": "33ms"
+    "speedSlow": 1111,
+    "speedMedium": 420,
+    "speedQuick": 140,
+    "speedUltra": 33
   },
   "constants": {
     "goldenRatio": 1.61803398875

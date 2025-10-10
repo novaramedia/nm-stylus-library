@@ -7,12 +7,12 @@
  */
 
 export const variables = {
-  // Breakpoints
+  // Breakpoints (in pixels)
   breakpoints: {
-    s: '759px',
-    m: '910px',
-    l: '1104px',
-    xl: '1408px',
+    s: 759,
+    m: 910,
+    l: 1104,
+    xl: 1408,
   },
 
   // Layout
@@ -46,18 +46,12 @@ export const variables = {
     grayExtraLight: '#EDEAEA',
   },
 
-  // Typography
-  typography: {
-    fontFamilySans: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-    fontFamilySerif: 'Georgia, Times, "Times New Roman", serif',
-  },
-
-  // Transitions
+  // Transitions (in milliseconds)
   transitions: {
-    speedSlow: '1111ms',
-    speedMedium: '420ms',
-    speedQuick: '140ms',
-    speedUltra: '33ms',
+    speedSlow: 1111,
+    speedMedium: 420,
+    speedQuick: 140,
+    speedUltra: 33,
   },
 
   // Constants

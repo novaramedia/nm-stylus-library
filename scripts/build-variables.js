@@ -27,13 +27,17 @@ function generateStylusContent(variables) {
   // First, add Stylus variables for breakpoints
   content += '// Breakpoint variables\n';
   Object.entries(variables.breakpoints).forEach(([key, value]) => {
-    content += `$breakpoint-${key} = ${value}\n`;
+    content += `$breakpoint-${key} = ${value}px\n`;
   });
   content += '\n';
 
-  // Add golden ratio constant
+  // Add constants
   content += '// Constants\n';
-  content += `$golden-ratio = ${variables.constants.goldenRatio}\n\n`;
+  Object.entries(variables.constants).forEach(([key, value]) => {
+    const stylusVar = camelToKebab(key);
+    content += `$${stylusVar} = ${value}\n`;
+  });
+  content += '\n';
 
   // Then add CSS custom properties in html block
   content += 'html\n';
@@ -52,18 +56,16 @@ function generateStylusContent(variables) {
     content += `  --color-${cssVar}: ${value}\n`;
   });
 
-  // Typography variables
+  // Typography variables (hardcoded for Stylus/CSS usage only)
   content += '  // typography\n';
-  Object.entries(variables.typography).forEach(([key, value]) => {
-    const cssVar = camelToKebab(key);
-    content += `  --${cssVar}: ${value}\n`;
-  });
+  content += '  --font-family-sans: "Helvetica Neue", Helvetica, Arial, sans-serif\n';
+  content += '  --font-family-serif: Georgia, Times, "Times New Roman", serif\n';
 
   // Transition variables
   content += '  // transitions\n';
   Object.entries(variables.transitions).forEach(([key, value]) => {
     const cssVar = camelToKebab(key);
-    content += `  --transition-${cssVar}: ${value}\n`;
+    content += `  --transition-${cssVar}: ${value}ms\n`;
   });
 
   // Breakpoints as CSS custom properties (derived from Stylus vars)
@@ -81,10 +83,10 @@ function generateJavaScriptContent(variables) {
   
   // Create a flat structure for easy access
   content += 'export const variables = {\n';
-  content += '  // Breakpoints\n';
+  content += '  // Breakpoints (in pixels)\n';
   content += '  breakpoints: {\n';
   Object.entries(variables.breakpoints).forEach(([key, value]) => {
-    content += `    ${key}: '${value}',\n`;
+    content += `    ${key}: ${value},\n`;
   });
   content += '  },\n\n';
 
@@ -102,17 +104,12 @@ function generateJavaScriptContent(variables) {
   });
   content += '  },\n\n';
 
-  content += '  // Typography\n';
-  content += '  typography: {\n';
-  Object.entries(variables.typography).forEach(([key, value]) => {
-    content += `    ${key}: '${value}',\n`;
-  });
-  content += '  },\n\n';
 
-  content += '  // Transitions\n';
+
+  content += '  // Transitions (in milliseconds)\n';
   content += '  transitions: {\n';
   Object.entries(variables.transitions).forEach(([key, value]) => {
-    content += `    ${key}: '${value}',\n`;
+    content += `    ${key}: ${value},\n`;
   });
   content += '  },\n\n';
 
@@ -143,10 +140,8 @@ function generateJavaScriptContent(variables) {
   content += '  },\n\n';
 
   content += '  typography: {\n';
-  Object.keys(variables.typography).forEach(key => {
-    const cssVar = camelToKebab(key);
-    content += `    ${key}: '--${cssVar}',\n`;
-  });
+  content += '    fontFamilySans: \'--font-family-sans\',\n';
+  content += '    fontFamilySerif: \'--font-family-serif\',\n';
   content += '  },\n\n';
 
   content += '  transitions: {\n';
@@ -179,18 +174,18 @@ function buildVariables() {
     // Generate Stylus file
     const stylusContent = generateStylusContent(variables);
     fs.writeFileSync(VARIABLES_STYL_PATH, stylusContent);
-    console.log('✅ Generated variables.styl');
+    console.log('Generated variables.styl');
 
     // Generate JavaScript file
     const jsContent = generateJavaScriptContent(variables);
     fs.writeFileSync(VARIABLES_JS_PATH, jsContent);
-    console.log('✅ Generated variables.js');
+    console.log('Generated variables.js');
 
-    console.log('\n🎉 Variable synchronization complete!');
-    console.log('📄 Source: variables.json');
-    console.log('📄 Generated: variables.styl, variables.js');
+    console.log('\nVariable synchronization complete!');
+    console.log('Source: variables.json');
+    console.log('Generated: variables.styl, variables.js');
   } catch (error) {
-    console.error('❌ Error building variables:', error.message);
+    console.error('Error building variables:', error.message);
     process.exit(1);
   }
 }
