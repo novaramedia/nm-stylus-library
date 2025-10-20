@@ -2,6 +2,10 @@
 
 This is the single source of truth for NM web design system in code.
 
+## Variable Synchronization
+
+This library now includes synchronized variables between Stylus and JavaScript. All design tokens (colors, spacing, typography, etc.) are available in both environments while maintaining a single source of truth. See [README-VARIABLES.md](./README-VARIABLES.md) for detailed usage instructions.
+
 ## Dependencies
 
 This library uses the Meyer css reset and Modern-normalise.css to create a consistent reset base for styling. The Meyer reset will probably not change from v2 ever again. However Modern-normalise.css might update at some point. That project had 2 updates in 2024 so the pace of change is likely to be slow. We need to check and potentially update the file every 6 months or so.

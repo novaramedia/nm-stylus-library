@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Variables are generated from .json config and available as .js export as well as .styl
+
 ## [0.11.0] - 2025-07-18
 
 ### Added
