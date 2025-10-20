@@ -75,29 +75,6 @@ The build script runs automatically:
     └── build-variables.js  # Build script
 ```
 
-## Available Variables
-
-### Colors
-- `whiteSoft`, `blackSoft` and their transparent variants
-- Brand colors: `red`, `acfmPink`, `yellow`, `green`, `blue`
-- Color variants: `greenNeon`, `greenRacing`, `blueNeon`, `blueLight`
-- Neutral colors: `teal`, `lilac`, `gray` variants, `grayExtraLight`
-
-### Layout
-- `gridGutter`, `cornerRadius`, `buttonRadius`
-
-### Typography
-- `fontFamilySans`, `fontFamilySerif`
-
-### Transitions
-- `speedSlow`, `speedMedium`, `speedQuick`, `speedUltra`
-
-### Breakpoints
-- `s` (759px), `m` (910px), `l` (1104px), `xl` (1408px)
-
-### Constants
-- `goldenRatio`
-
 ## Important Notes
 
 - **Never edit** `variables.styl` or `variables.js` directly - they are auto-generated
