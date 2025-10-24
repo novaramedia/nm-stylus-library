@@ -207,7 +207,7 @@
 
         async function loadColors() {
             try {
-                const response = await fetch('./variables.json');
+                const response = await fetch('./../variables.json');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
