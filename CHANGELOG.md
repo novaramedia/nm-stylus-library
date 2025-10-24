@@ -12,13 +12,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Variables are generated from .json config and available as .js export as well as .styl
 - development/color-palette.html display of colors from variables file
 
-### Removed
-
-- --color-gray-extra-light, --color-gray-transparent, --color-gray-light-old-transparent
-
 ### Changed
 
 - Renamed gray colors to arrive at 3 functional grays: base, mid and light.
+- Extended type scale with 4 larger sizes
+
+### Removed
+
+- --color-gray-extra-light, --color-gray-transparent, --color-gray-light-old-transparent
 
 ## [0.11.0] - 2025-07-18
 
