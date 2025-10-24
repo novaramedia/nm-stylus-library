@@ -19,13 +19,13 @@ body
 
 // FONT SIZE GENERATOR FUNCTIONS
 
-$large-scale = 0.5625 0.75 0.875 1 1.25 1.5 2 2.5 3 3.75 4.5
-$small-scale = 0.57142857 0.71428571 0.85714286 1 1.14285714 1.35714286 1.71428571 2.28571429 2.85714286 3.42857143 4.28571429
-$line-height-scale = 1.2 1.2 1.2 1.2 1.1 1.1 1 1 1 1 1
-$letter-spacing-scale = 0.04 0.03 0.01 0.01 -0.01 -0.01 -0.01 -0.01 -0.02 -0.02 -0.02
+$large-scale = 0.5625 0.75 0.875 1 1.25 1.5 2 2.5 3 3.75 4.5 5.5 7 8.5 10
+$small-scale = 0.571 0.714 0.857 1 1.14 1.36 1.71 2.29 2.86 3.43 4.29 5.14 6 6.86 7.71
+$line-height-scale = 1.2 1.2 1.2 1.2 1.1 1.1 1 1 1 1 1 0.8 0.8 0.8 0.8
+$letter-spacing-scale = 0.04 0.03 0.01 0.01 -0.01 -0.01 -0.01 -0.01 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02
 
 font-size-maker($breakpoint = false, $larger-scale = true)
-  // 11 step scale with 2 variations.
+  // 15 step scale with 2 variations.
   // Smaller scale is for mobile, larger scale is for desktop.
   // This function generates classes for both scales.
   $offset-to-root = 7 // this centers the scale on the root size which is 1rem. the helper classes center at .font-size-10
