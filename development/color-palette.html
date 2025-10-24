@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NM Stylus Library - Color Palette</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+            padding: 2rem;
+            line-height: 1.5;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            color: #0e0e0e;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .color-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .color-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .color-swatch {
+            height: 120px;
+            width: 100%;
+            position: relative;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .color-info {
+            padding: 1.25rem;
+        }
+
+        .color-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0e0e0e;
+            margin-bottom: 0.5rem;
+        }
+
+        .color-value {
+            font-size: 0.95rem;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            color: #666;
+            background: #f8f9fa;
+            padding: 0.5rem;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .color-value:hover {
+            background: #e9ecef;
+        }
+
+        .copied-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .copied-notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Special handling for transparent colors */
+        .transparent-bg {
+            background-image: 
+                linear-gradient(45deg, #ccc 25%, transparent 25%), 
+                linear-gradient(-45deg, #ccc 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #ccc 75%), 
+                linear-gradient(-45deg, transparent 75%, #ccc 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+
+        /* Text contrast for light colors */
+        .light-text {
+            color: #0e0e0e !important;
+        }
+
+        .dark-text {
+            color: #fdfdfd !important;
+        }
+
+        @media (max-width: 768px) {
+            .color-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+            
+            body {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>NM Stylus Library</h1>
+        <p>Color Palette Reference</p>
+    </div>
+
+    <div class="color-grid" id="colorGrid">
+        <!-- Colors will be generated here by JavaScript -->
+    </div>
+
+    <div class="copied-notification" id="copiedNotification">
+        Color value copied to clipboard!
+    </div>
+
+    <script>
+        let colors = {};
+
+        function isLightColor(color) {
+            // Convert color to RGB values
+            let r, g, b;
+            
+            if (color.startsWith('#')) {
+                const hex = color.slice(1);
+                r = parseInt(hex.substr(0, 2), 16);
+                g = parseInt(hex.substr(2, 2), 16);
+                b = parseInt(hex.substr(4, 2), 16);
+            } else if (color.startsWith('rgb')) {
+                const matches = color.match(/\d+/g);
+                r = parseInt(matches[0]);
+                g = parseInt(matches[1]);
+                b = parseInt(matches[2]);
+            } else {
+                return true; // Default to light for unknown formats
+            }
+            
+            // Calculate luminance
+            const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+            return luminance > 0.5;
+        }
+
+        function formatColorName(name) {
+            // Convert camelCase and kebab-case to readable format
+            return name
+                .replace(/([A-Z])/g, ' $1')
+                .replace(/-/g, ' ')
+                .replace(/\b\w/g, l => l.toUpperCase())
+                .trim();
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const notification = document.getElementById('copiedNotification');
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 2000);
+            });
+        }
+
+        async function loadColors() {
+            try {
+                const response = await fetch('./variables.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                colors = data.colors || {};
+                generateColorGrid();
+            } catch (error) {
+                console.error('Error loading colors from variables.json:', error);
+                document.getElementById('colorGrid').innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: #666;">
+                        <h3>Error loading colors</h3>
+                        <p>Could not load colors from variables.json. Please make sure the file exists and is accessible.</p>
+                        <p style="font-size: 0.9rem; margin-top: 1rem;">Error: ${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        function generateColorGrid() {
+            const grid = document.getElementById('colorGrid');
+            
+            if (Object.keys(colors).length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: #666;">
+                        <h3>No colors found</h3>
+                        <p>No colors were found in variables.json</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Clear existing content
+            grid.innerHTML = '';
+            
+            Object.entries(colors).forEach(([name, value]) => {
+                const card = document.createElement('div');
+                card.className = 'color-card';
+                
+                const isTransparent = value.includes('rgba') || value.includes('hsla');
+                const swatchClass = isTransparent ? 'color-swatch transparent-bg' : 'color-swatch';
+                const textClass = isLightColor(value) ? 'light-text' : 'dark-text';
+                
+                card.innerHTML = `
+                    <div class="${swatchClass}" style="background-color: ${value};"></div>
+                    <div class="color-info">
+                        <div class="color-name">${formatColorName(name)}</div>
+                        <div class="color-value" onclick="copyToClipboard('${value}')" title="Click to copy">
+                            ${value}
+                        </div>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+
+        // Load colors and generate the grid when the page loads
+        document.addEventListener('DOMContentLoaded', loadColors);
+    </script>
+</body>
+</html>
