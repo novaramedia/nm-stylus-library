@@ -1,3 +1,32 @@
+// Boxed Titles
+// -------------
+
+.ui-boxed-title
+  font-weight: bold
+  font-size: $large-scale[2] * 1rem // mapped to size scale 9
+  background: var(--color-black-soft)
+  color: var(--color-white-soft)
+  -webkit-font-smoothing: antialiased // this really is for white on black text. might need to remove for other color pairs
+  -moz-osx-font-smoothing: grayscale
+  padding: 0.625rem 0.875rem 0.5625rem 0.875rem
+  line-height: 1em
+  border-radius: var(--corner-radius)
+  text-transform: uppercase
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  &--white
+    background: var(--color-white-soft)
+    color: var(--color-black-soft)
+  &--grey
+    background: var(--color-gray-base)
+    color: var(--color-black-soft)
+  @media (max-width: $breakpoint-s)
+    font-size: $small-scale[2] * 1rem // mapped to size scale 9
+
+// Tags
+// -------------
+
 .ui-tag-block
   display: inline-flex
   align-items: center
@@ -102,6 +131,7 @@
       margin-left: -.05rem
       margin-top: .15em
 
+// Dots
 // -------------
 
 .ui-dot
@@ -115,6 +145,10 @@
     background-color: var(--color-red)
   &--green
     background-color: var(--color-green)
+  &--pink
+    background-color: var(--color-pink)
+  &--gray
+    background-color: var(--color-gray-mid--new)
 
 // Form Elements
 // -------------
@@ -138,6 +172,11 @@ formElementBase() // This could be a class that is extended rather than a mixin
     font-size: 1rem
     line-height: 1rem
     padding: 0.4375rem 0.8125rem 0.5625rem 0.8125rem
+  &--slimline
+    height: auto
+    font-size: 0.875rem
+    line-height: 1em
+    padding: 0.25rem 0.875rem 0.4375rem 0.875rem
   &--auto-height
     height: auto
   &--border-gray
@@ -169,6 +208,7 @@ formElementBase() // This could be a class that is extended rather than a mixin
     color: var(--color-white-soft)
     border-color: var(--color-red)
     &:hover
+      color: var(--color-red) // this is correct, but it needs some pair option to have the red hover into white state
       border-color: var(--color-red)
 
   &--white
@@ -214,6 +254,7 @@ formElementBase() // This could be a class that is extended rather than a mixin
   width: 1.25rem
   height: 1.25rem
 
+// Action Links
 // -------------
 
 @css {
@@ -273,9 +314,21 @@ hr
 
 .ui-rounded-image
   border-radius: var(--corner-radius)
+  &--large
+    border-radius: var(--corner-radius-large)
 
 .ui-rounded-box
   border-radius: var(--corner-radius)
+  &--large
+    border-radius: var(--corner-radius-large)
+
+.ui-rounded-box--top // these could be refactored to use a css var just on the parent BEM class to avoid repetition
+  border-top-left-radius: var(--corner-radius)
+  border-top-right-radius: var(--corner-radius)
+
+.ui-rounded-box--bottom
+  border-bottom-left-radius: var(--corner-radius)
+  border-bottom-right-radius: var(--corner-radius)
 
 // Hover Effects
 // -------------
