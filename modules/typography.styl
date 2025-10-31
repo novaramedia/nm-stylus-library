@@ -69,16 +69,16 @@ font-size-single($font-size = 10, $larger-scale = true)
 
 font-size-maker()
 
-@media screen and (max-width: 1408px)
+@media screen and (max-width: $breakpoint-xl)
   font-size-maker('xl')
 
-@media screen and (max-width: 1104px)
+@media screen and (max-width: $breakpoint-l)
   font-size-maker('l')
 
-@media screen and (max-width: 910px)
+@media screen and (max-width: $breakpoint-m)
   font-size-maker('m', false)
 
-@media screen and (max-width: 759px)
+@media screen and (max-width: $breakpoint-s)
   font-size-maker('s', false)
 
 // FONT RULES
