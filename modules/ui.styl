@@ -313,22 +313,22 @@ hr
 // -------------
 
 .ui-rounded-image
-  border-radius: var(--corner-radius)
+  --ui-border-radius: var(--corner-radius)
+  border-radius: var(--ui-border-radius)
   &--large
-    border-radius: var(--corner-radius-large)
+    --ui-border-radius: var(--corner-radius-large)
 
 .ui-rounded-box
-  border-radius: var(--corner-radius)
+  --ui-border-radius: var(--corner-radius)
+  border-radius: var(--ui-border-radius)
   &--large
-    border-radius: var(--corner-radius-large)
-
-.ui-rounded-box--top // these could be refactored to use a css var just on the parent BEM class to avoid repetition
-  border-top-left-radius: var(--corner-radius)
-  border-top-right-radius: var(--corner-radius)
-
-.ui-rounded-box--bottom
-  border-bottom-left-radius: var(--corner-radius)
-  border-bottom-right-radius: var(--corner-radius)
+    --ui-border-radius: var(--corner-radius-large)
+  &--top
+    border-top-left-radius: var(--ui-border-radius)
+    border-top-right-radius: var(--ui-border-radius)
+  &--bottom
+    border-bottom-left-radius: var(--ui-border-radius)
+    border-bottom-right-radius: var(--ui-border-radius)
 
 // Boxed Elements
 // -------------
