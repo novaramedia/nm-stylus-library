@@ -8,6 +8,7 @@
   "layout": {
     "gridGutter": "1rem",
     "cornerRadius": "2px",
+    "cornerRadiusLarge": "4px",
     "buttonRadius": "4px"
   },
   "colors": {
