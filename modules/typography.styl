@@ -35,7 +35,9 @@ font-size-maker($breakpoint = false, $larger-scale = true)
   else
     $prefix = '.font-size-'
 
-  for i in 0..15
+  // The destination int has to be number of steps minus 1. e.g. 15 steps needs `i in 0..14`
+  // Cant this be made dynamic?
+  for i in 0..14
     if $larger-scale
       {$prefix}{i+$offset-to-root}
         font-size: $large-scale[i] * 1rem
@@ -48,7 +50,7 @@ font-size-maker($breakpoint = false, $larger-scale = true)
         letter-spacing: $letter-spacing-scale[i] * 1em
 
 font-size-single($font-size = 10, $larger-scale = true)
-  // 11 step scale with 2 variations.
+  // 15 step scale with 2 variations.
   // Smaller scale is for mobile, larger scale is for desktop.
   // This function generates a single class for a specific size.
 
