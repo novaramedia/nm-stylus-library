@@ -35,7 +35,7 @@ font-size-maker($breakpoint = false, $larger-scale = true)
   else
     $prefix = '.font-size-'
 
-  for i in 0..10
+  for i in 0..15
     if $larger-scale
       {$prefix}{i+$offset-to-root}
         font-size: $large-scale[i] * 1rem
