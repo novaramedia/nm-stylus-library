@@ -30,7 +30,7 @@ export const variables = {
     blackSoft: 'rgb(14, 14, 14)',
     blackSoftTransparent: 'rgba(14, 14, 14, .5)',
     red: '#FF1941',
-    acfmPink: 'var(--color-pink)',
+    acfmPink: '#FF19B4',
     pink: '#FF19B4',
     yellow: '#EBB800',
     green: '#5FCC00',
