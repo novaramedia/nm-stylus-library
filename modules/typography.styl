@@ -81,7 +81,7 @@ font-size-maker()
   font-size-maker('m', false)
 
 @media screen and (max-width: $breakpoint-s)
-  font-size-maker('s', false)
+  font-size-maker('s', false) // how to also make the normal classes use the small scale on mobile?
 
 // FONT RULES
 
@@ -108,6 +108,9 @@ font-size-maker()
 .text-underline
   text-decoration: underline
 
+.text-extra-leading
+  line-height: 1.2
+
 .text-overflow-ellipsis
   overflow: ellipsis
 
@@ -125,6 +128,14 @@ font-size-maker()
     text-decoration: underline
     &:hover
       text-decoration: none
+
+// TEXT WRAPPING
+
+.text-wrap-pretty
+  text-wrap: pretty
+
+.text-wrap-balance
+  text-wrap: balance
 
 // TEXT SPACING
 
