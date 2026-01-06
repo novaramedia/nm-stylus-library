@@ -29,11 +29,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Extended type scale with 4 larger sizes
 - Updated spacing module to use breakpoint variables for media queries
 - Refactored rounded box classes in UI module
-- Added padding to backgrounded box elements
-- Fixed camel case numeric splitting in variable generation
+- Added padding helper for backgrounded box elements
 - Updated grid function to use new breakpoint variables
 - Typography module now renders all type sizes
-- Improved variable building script to handle numeric values in camelCase
 
 ### Deprecated
 
