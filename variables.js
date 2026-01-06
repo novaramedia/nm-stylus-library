@@ -20,6 +20,10 @@ export const variables = {
     gridGutter: '1rem',
     cornerRadius: '2px',
     buttonRadius: '4px',
+    containerXl: '1056px',
+    containerL: '888px',
+    containerM: '744px',
+    containerS: '98%',
   },
 
   // Colors
@@ -66,6 +70,10 @@ export const cssVariableNames = {
     gridGutter: '--grid-gutter',
     cornerRadius: '--corner-radius',
     buttonRadius: '--button-radius',
+    containerXl: '--container-xl',
+    containerL: '--container-l',
+    containerM: '--container-m',
+    containerS: '--container-s',
   },
 
   colors: {
