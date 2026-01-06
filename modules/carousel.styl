@@ -1,3 +1,28 @@
+.swiper
+  position: relative
+
+.swiper-pagination
+  position: absolute
+  bottom: 1rem
+  left: 0
+  right: 0
+  z-index: 10
+  display: flex
+  justify-content: center
+  pointer-events: auto
+
+.swiper-pagination-bullet
+  display: inline-block
+  width: 14px
+  height: 3px
+  background-color: var(--color-gray-mid)
+  margin: 0 4px
+  transition: opacity 0.3s ease
+
+.swiper-pagination-bullet-active
+  background-color: var(--color-black-soft)
+  opacity: 1
+
 .swiper-button-prev, .swiper-button-next
   display: flex
   justify-content: center
@@ -26,3 +51,4 @@
   margin-right: 1rem
   &:last-child
     margin-right: 0
+
