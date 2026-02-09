@@ -1,3 +1,9 @@
+// Spacing Module
+// Generates margin/padding utility classes via spacer-maker().
+// Base: .m-{n}, .mt-{n}, .p-{n}, etc. (0 through 12)
+// Responsive: .{prefix}-{breakpoint}-{n} e.g. .mt-s-0, .p-m-3
+// Scale is non-linear: 0-4 increment by 0.25rem, 5+ increment by 1rem.
+
 spacer-maker($class, $property, $steps = 12, $unit = 1rem)
   for $i in 0..$steps
     if $i < 5
