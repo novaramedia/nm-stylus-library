@@ -19,8 +19,8 @@ export const variables = {
   layout: {
     gridGutter: '1rem',
     cornerRadius: '2px',
-    cornerRadiusLarge: '4px',
     buttonRadius: '4px',
+    cornerRadiusLarge: '4px',
     containerXxl: '1200px',
     containerXl: '1056px',
     containerL: '888px',
@@ -83,8 +83,8 @@ export const cssVariableNames = {
   layout: {
     gridGutter: '--grid-gutter',
     cornerRadius: '--corner-radius',
-    cornerRadiusLarge: '--corner-radius-large',
     buttonRadius: '--button-radius',
+    cornerRadiusLarge: '--corner-radius-large',
     containerXxl: '--container-xxl',
     containerXl: '--container-xl',
     containerL: '--container-l',
