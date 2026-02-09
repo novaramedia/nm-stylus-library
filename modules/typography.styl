@@ -19,13 +19,13 @@ body
 
 // FONT SIZE GENERATOR FUNCTIONS
 
-$large-scale = 0.5625 0.75 0.875 1 1.25 1.5 2 2.5 3 3.75 4.5
-$small-scale = 0.57142857 0.71428571 0.85714286 1 1.14285714 1.35714286 1.71428571 2.28571429 2.85714286 3.42857143 4.28571429
-$line-height-scale = 1.2 1.2 1.2 1.2 1.1 1.1 1 1 1 1 1
-$letter-spacing-scale = 0.04 0.03 0.01 0.01 -0.01 -0.01 -0.01 -0.01 -0.02 -0.02 -0.02
+$large-scale = 0.5625 0.75 0.875 1 1.25 1.5 2 2.5 3 3.75 4.5 5.5 7 8.5 10
+$small-scale = 0.571 0.714 0.857 1 1.14 1.36 1.71 2.29 2.86 3.43 4.29 5.14 6 6.86 7.71
+$line-height-scale = 1.2 1.2 1.2 1.2 1.1 1.1 1 1 1 1 1 0.8 0.8 0.8 0.8
+$letter-spacing-scale = 0.04 0.03 0.01 0.01 -0.01 -0.01 -0.01 -0.01 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02 -0.02
 
 font-size-maker($breakpoint = false, $larger-scale = true)
-  // 11 step scale with 2 variations.
+  // 15 step scale with 2 variations.
   // Smaller scale is for mobile, larger scale is for desktop.
   // This function generates classes for both scales.
   $offset-to-root = 7 // this centers the scale on the root size which is 1rem. the helper classes center at .font-size-10
@@ -35,7 +35,9 @@ font-size-maker($breakpoint = false, $larger-scale = true)
   else
     $prefix = '.font-size-'
 
-  for i in 0..10
+  // The destination int has to be number of steps minus 1. e.g. 15 steps needs `i in 0..14`
+  // Cant this be made dynamic?
+  for i in 0..14
     if $larger-scale
       {$prefix}{i+$offset-to-root}
         font-size: $large-scale[i] * 1rem
@@ -48,7 +50,7 @@ font-size-maker($breakpoint = false, $larger-scale = true)
         letter-spacing: $letter-spacing-scale[i] * 1em
 
 font-size-single($font-size = 10, $larger-scale = true)
-  // 11 step scale with 2 variations.
+  // 15 step scale with 2 variations.
   // Smaller scale is for mobile, larger scale is for desktop.
   // This function generates a single class for a specific size.
 
@@ -69,17 +71,17 @@ font-size-single($font-size = 10, $larger-scale = true)
 
 font-size-maker()
 
-@media screen and (max-width: 1408px)
+@media screen and (max-width: $breakpoint-xl)
   font-size-maker('xl')
 
-@media screen and (max-width: 1104px)
+@media screen and (max-width: $breakpoint-l)
   font-size-maker('l')
 
-@media screen and (max-width: 910px)
+@media screen and (max-width: $breakpoint-m)
   font-size-maker('m', false)
 
-@media screen and (max-width: 759px)
-  font-size-maker('s', false)
+@media screen and (max-width: $breakpoint-s)
+  font-size-maker('s', false) // how to also make the normal classes use the small scale on mobile?
 
 // FONT RULES
 
@@ -106,6 +108,9 @@ font-size-maker()
 .text-underline
   text-decoration: underline
 
+.text-extra-leading
+  line-height: 1.2
+
 .text-overflow-ellipsis
   overflow: ellipsis
 
@@ -123,6 +128,14 @@ font-size-maker()
     text-decoration: underline
     &:hover
       text-decoration: none
+
+// TEXT WRAPPING
+
+.text-wrap-pretty
+  text-wrap: pretty
+
+.text-wrap-balance
+  text-wrap: balance
 
 // TEXT SPACING
 
@@ -209,16 +222,22 @@ article
 .font-color-red
   color: var(--color-red)
 
+.font-color-gray
+  color: var(--color-gray-mid)
+
+.font-color-pink
+  color: var(--color-pink)
+
 // SHADOWS
 
 .text-shadow-white
-  text-shadow: 0 0 20px var(--color-white-soft-transparent)
+  text-shadow: 0 0 20px var(--color-white-soft)
 
 .text-shadow-light-gray
-  text-shadow: 0 0 20px var(--color-gray-light-transparent)
+  text-shadow: 0 0 20px var(--color-gray-light)
 
 .text-shadow-gray
-  text-shadow: 0 0 20px var(--color-gray-transparent)
+  text-shadow: 0 0 20px var(--color-gray-mid)
 
 // HTML ELEMENTS
 

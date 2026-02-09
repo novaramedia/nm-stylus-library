@@ -17,7 +17,10 @@ const VARIABLES_JS_PATH = path.join(__dirname, '../variables.js');
 
 // Convert camelCase to kebab-case for CSS custom properties
 function camelToKebab(str) {
-  return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+  return str
+    .replace(/([a-z])([A-Z])/g, '$1-$2')  // lowercase letter followed by uppercase letter
+    .replace(/([a-zA-Z])([0-9])/g, '$1-$2')  // letter followed by digit
+    .toLowerCase();
 }
 
 // Generate Stylus file content
