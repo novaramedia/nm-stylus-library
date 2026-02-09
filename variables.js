@@ -21,7 +21,7 @@ export const variables = {
     cornerRadius: '2px',
     buttonRadius: '4px',
     cornerRadiusLarge: '4px',
-    containerXxl: '1200px',
+    containerXxl: '1400px',
     containerXl: '1056px',
     containerL: '888px',
     containerM: '744px',
