@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Container size variables: `--container-xxl`, `--container-xl`, `--container-l`, `--container-m`, `--container-s`, `--container-s-max`
+- New font family variable: `--font-family-sans-condensed` (Helvetica Neue LT Pro Condensed)
+- New `modules/lists.styl` module with inline action list styles
+- `.ui-responsive-video-container` component in UI module for responsive iframes
+- Documentation header comments on all modules and functions
+
+### Changed
+
+- Updated `--font-family-sans` to use Helvetica Neue LT Pro as primary webfont
+- `.only-desktop` now uses `!important` to prevent override conflicts
+- Replaced `$margin-tiny` reference in typography with explicit `0.5rem`
+
 ## [0.12.0] - 2026-01-06
 
 ### Added
