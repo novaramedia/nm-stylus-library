@@ -1,3 +1,10 @@
+// Typography Module
+// Base font defaults and responsive type scale.
+// font-size-maker() generates .font-size-{n} classes. .font-size-10 = 1rem (root).
+// font-size-single($size) applies a scale step inline within other selectors.
+// Two scale variations: $large-scale (desktop) and $small-scale (mobile).
+// At breakpoints m and s the small scale is used automatically.
+
 html
   font-family: var(--font-family-sans)
   font-size: 16px
@@ -7,9 +14,12 @@ body
   line-height: 1.2em
 
 .font-condensed
-  font-family: 'acumin-variable', sans-serif !important
-  font-variation-settings: "slnt" 0, "wdth" 68, "wght" 721
-  font-weight: normal !important
+  font-family: var(--font-family-sans-condensed) !important
+  font-weight: 700
+
+.font-condensed
+  font-family: var(--font-family-sans-condensed) !important
+  font-weight: 700
 
 .font-serif
   font-family: var(--font-family-serif)
@@ -174,6 +184,7 @@ article
       font-family: var(--font-family-sans)
   .wp-caption
     .wp-caption-text
+      margin-top: 0.5rem
       font-family: var(--font-family-sans)
       font-size: .8rem // this should be deprecated as an implementation by @4.3.0
   .twitter-tweet, .instagram-media, .oembed-element
@@ -198,7 +209,7 @@ article
       margin: 0 auto
     .wp-caption-text
       text-align: left
-      margin-top: $margin-tiny
+      margin-top: 0.5rem
 
 .wp-video + .wp-caption
   margin-top: -1rem

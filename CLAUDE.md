@@ -19,7 +19,7 @@ npm run release:dry         # Dry-run release
 
 There is no CSS compilation step in this repo — Stylus files are compiled by consuming projects.
 
-Each module has documentation in its header comments describing available classes, functions, and usage. These comments are stripped during Stylus compilation so add no weight to production output.
+Each module has a documentation header comment describing its purpose and key classes. These are stripped during Stylus compilation.
 
 ## Architecture
 
@@ -60,7 +60,9 @@ Typography font stacks are hardcoded in the build script (not in variables.json)
 
 **Grid system**: Dual grid approach — CSS Grid (`.layout-grid`, 24-column) and Flexbox (`.grid-row` + `.is-{breakpoint}-{cols}`). The flex grid uses `grid-maker()` to generate column/offset classes.
 
-**UI components**: `modules/ui.styl` uses a `formElementBase()` mixin for buttons/inputs with BEM-style modifiers (`--red`, `--small`, `--slimline`).
+**Container sizing**: The library does not define `.container` widths — consuming projects define their own using `--container-{size}` CSS custom properties.
+
+**UI components**: `modules/ui.styl` uses a `formElementBase()` mixin for buttons/inputs with BEM-style modifiers.
 
 ## Development Workflow
 

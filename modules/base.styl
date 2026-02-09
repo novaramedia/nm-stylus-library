@@ -1,6 +1,20 @@
+// Base Module
+// Global defaults (html/body/img/h1) and responsive display helpers.
+// .only-mobile / .only-desktop toggle visibility at $breakpoint-s.
+
 html
   background-color: var(--color-white-soft)
   color: var(--color-black-soft)
+
+body
+  overscroll-behavior: none
+
+img
+  max-width: 100%
+  height: auto
+
+h1
+  margin: 0
 
 // DISPLAY HELPERS
 
@@ -15,7 +29,7 @@ html
     display: block
 
   .only-desktop
-    display: none
+    display: none !important
 
   .grid-row.only-mobile // but also we wanna specifcally set a few key classes?
     --mobile-display: flex

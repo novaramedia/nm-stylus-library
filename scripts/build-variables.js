@@ -61,7 +61,10 @@ function generateStylusContent(variables) {
 
   // Typography variables (hardcoded for Stylus/CSS usage only)
   content += '  // typography\n';
-  content += '  --font-family-sans: "Helvetica Neue", Helvetica, Arial, sans-serif\n';
+  content +=
+    '  --font-family-sans: helvetica-neue-lt-pro, "Helvetica Neue", Helvetica, Arial, sans-serif\n';
+  content +=
+    '  --font-family-sans-condensed: helvetica-neue-lt-pro-cond, "Helvetica Neue", Helvetica, Arial, sans-serif\n';
   content += '  --font-family-serif: Georgia, Times, "Times New Roman", serif\n';
 
   // Transition variables
