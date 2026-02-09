@@ -19,6 +19,8 @@ npm run release:dry         # Dry-run release
 
 There is no CSS compilation step in this repo — Stylus files are compiled by consuming projects.
 
+Each module has documentation in its header comments describing available classes, functions, and usage. These comments are stripped during Stylus compilation so add no weight to production output.
+
 ## Architecture
 
 ### Variable Synchronization System

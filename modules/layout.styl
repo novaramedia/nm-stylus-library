@@ -1,3 +1,19 @@
+// Layout Module
+// Provides CSS Grid and Flexbox layout utilities.
+//
+// Container sizing is NOT defined here — consuming projects must define their own
+// .container class with --container-{size} CSS custom properties at each breakpoint.
+// This allows each product to choose which breakpoint sizes to implement.
+//
+// Example in consuming project:
+//   .container
+//     margin-left: auto
+//     margin-right: auto
+//     width: var(--container-xl)
+//   @media screen and (max-width: $breakpoint-m)
+//     .container
+//       width: var(--container-m)
+
 // CSS Grid
 
 .layout-grid

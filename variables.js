@@ -21,6 +21,12 @@ export const variables = {
     cornerRadius: '2px',
     cornerRadiusLarge: '4px',
     buttonRadius: '4px',
+    containerXxl: '1200px',
+    containerXl: '1056px',
+    containerL: '888px',
+    containerM: '744px',
+    containerS: '98%',
+    containerSMax: '460px',
   },
 
   // Colors
@@ -79,6 +85,12 @@ export const cssVariableNames = {
     cornerRadius: '--corner-radius',
     cornerRadiusLarge: '--corner-radius-large',
     buttonRadius: '--button-radius',
+    containerXxl: '--container-xxl',
+    containerXl: '--container-xl',
+    containerL: '--container-l',
+    containerM: '--container-m',
+    containerS: '--container-s',
+    containerSMax: '--container-smax',
   },
 
   colors: {
