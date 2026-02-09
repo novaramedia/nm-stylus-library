@@ -1,8 +1,16 @@
 // Spacing Module
-// Generates margin/padding utility classes via spacer-maker().
-// Base: .m-{n}, .mt-{n}, .p-{n}, etc. (0 through 12)
-// Responsive: .{prefix}-{breakpoint}-{n} e.g. .mt-s-0, .p-m-3
-// Scale is non-linear: 0-4 increment by 0.25rem, 5+ increment by 1rem.
+// Generates margin and padding utility classes at all breakpoints.
+//
+// The spacer-maker() function creates classes .{prefix}-0 through .{prefix}-12
+// with a non-linear scale:
+//   0 = 0, 1 = 0.25rem, 2 = 0.5rem, 3 = 0.75rem, 4 = 1rem,
+//   5 = 2rem, 6 = 3rem, 7 = 4rem, 8 = 5rem, 9 = 6rem, ...12 = 9rem
+//
+// Base classes:  .m-{n}, .mt-{n}, .mb-{n}, .ml-{n}, .mr-{n}
+//                .p-{n}, .pt-{n}, .pb-{n}, .pl-{n}, .pr-{n}
+//
+// Responsive:   .{prefix}-{breakpoint}-{n}  e.g. .mt-s-0, .p-m-3
+//               Applied at max-width for each breakpoint (xl, l, m, s)
 
 spacer-maker($class, $property, $steps = 12, $unit = 1rem)
   for $i in 0..$steps

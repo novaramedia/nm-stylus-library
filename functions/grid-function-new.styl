@@ -1,7 +1,23 @@
 // Flex Grid
-// 24-column flexbox grid. grid-maker($size) generates .is-{size}-{1..24}
-// column widths and .offset-{size}-{0..23} offsets for a given breakpoint.
-// Consuming projects call grid-maker() at each breakpoint they need.
+// 24-column flexbox grid system. Called by consuming projects at each breakpoint.
+//
+// Base classes (always available):
+//   .grid-row — Flex container (--reverse, --nowrap, --align-center modifiers)
+//   .grid-item — Flex child with gutter padding from --grid-gutter
+//   .grid-item--tight — Half gutter width
+//   .container--padded — Half gutter padding for outer container
+//   .grid--nested / .grid--nested-tight — Negative margin for nested grids
+//
+// grid-maker($size, $cols = 24):
+//   Generates column and offset classes for a given breakpoint name.
+//   Must be called with a $size string to produce responsive classes:
+//     .is-{size}-{1..24} — Column widths (flex-basis percentage)
+//     .offset-{size}-{0..23} — Left margin offsets
+//
+//   Consuming projects call this at each breakpoint, e.g.:
+//     grid-maker('xl')
+//     @media screen and (max-width: $breakpoint-l)
+//       grid-maker('l')
 
 .grid-row
   display: flex
