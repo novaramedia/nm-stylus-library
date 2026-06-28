@@ -47,9 +47,17 @@ function validateSynchronization() {
     }
     console.log('Stylus breakpoint variables are synchronized');
 
+    // Helper function: Convert camelCase to kebab-case (matches build-variables.js)
+    function camelToKebab(str) {
+      return str
+        .replace(/([a-z])([A-Z])/g, '$1-$2')  // lowercase letter followed by uppercase letter
+        .replace(/([a-zA-Z])([0-9])/g, '$1-$2')  // letter followed by digit
+        .toLowerCase();
+    }
+
     // Test: Check if Stylus file contains expected color CSS custom properties
     for (const [key, value] of Object.entries(variablesJson.colors)) {
-      const cssVar = key.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+      const cssVar = camelToKebab(key);
       const expectedLine = `--color-${cssVar}: ${value}`;
       if (!stylusContent.includes(expectedLine)) {
         console.error(`Stylus missing color variable: ${expectedLine}`);

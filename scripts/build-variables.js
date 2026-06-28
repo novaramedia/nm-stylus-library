@@ -42,6 +42,15 @@ function generateStylusContent(variables) {
   });
   content += '\n';
 
+  // Container width Stylus variables (mirror --container-* custom props; usable in @media / calc)
+  content += '// Container widths\n';
+  Object.entries(variables.layout)
+    .filter(([key]) => key.startsWith('container'))
+    .forEach(([key, value]) => {
+      content += `$${camelToKebab(key)} = ${value}\n`;
+    });
+  content += '\n';
+
   // Then add CSS custom properties in html block
   content += 'html\n';
   
