@@ -66,6 +66,16 @@ function validateSynchronization() {
     }
     console.log('Stylus color variables are synchronized');
 
+    // Test: Check if Stylus file contains expected container variables
+    for (const [key, value] of Object.entries(variablesJson.layout).filter(([k]) => k.startsWith('container'))) {
+      const expectedLine = `$${camelToKebab(key)} = ${value}`;
+      if (!stylusContent.includes(expectedLine)) {
+        console.error(`Stylus missing container variable: ${expectedLine}`);
+        process.exit(1);
+      }
+    }
+    console.log('Stylus container variables are synchronized');
+
     // Test: Check if JavaScript file can be required/imported
     const jsContent = fs.readFileSync(VARIABLES_JS_PATH, 'utf8');
     
