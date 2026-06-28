@@ -60,12 +60,14 @@ grid-maker($size = false, $cols = 24)
       padding-right: calc(var(--grid-gutter) / 4);
     }
 
-    .grid--nested {
+    // .grid--nested @deprecated since v0.14.0 → .grid-row--nested. Removed next release.
+    .grid-row--nested, .grid--nested {
       margin-left: calc(var(--grid-gutter) / 2 * -1);
       margin-right: calc(var(--grid-gutter) / 2 * -1);
     }
 
-    .grid--nested-tight {
+    // .grid--nested-tight @deprecated since v0.14.0 → .grid-row--nested-tight. Removed next release.
+    .grid-row--nested-tight, .grid--nested-tight {
       margin-left: calc(var(--grid-gutter) / 4 * -1);
       margin-right: calc(var(--grid-gutter) / 4 * -1);
     }
