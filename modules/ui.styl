@@ -347,6 +347,7 @@ hr
 // Rounded Elements
 // -------------
 
+// @deprecated since v0.14.0 → use .ui-rounded-box (CSS-identical at default). Removed next release.
 .ui-rounded-image
   --ui-border-radius: var(--corner-radius)
   border-radius: var(--ui-border-radius)
@@ -356,6 +357,9 @@ hr
 .ui-rounded-box
   --ui-border-radius: var(--corner-radius)
   border-radius: var(--ui-border-radius)
+  &--nested
+    --ui-border-radius: var(--corner-radius-large)
+  // @deprecated since v0.14.0 → use --nested. Removed next release.
   &--large
     --ui-border-radius: var(--corner-radius-large)
   &--top
