@@ -525,6 +525,7 @@ hr
 
   // Video Embeds
 
+  // @deprecated since v0.14.0 → use .ui-embed-container (also fixes this rule's accidental nesting under .ui-inline-list). Removed next release.
   .ui-responsive-video-container
     position: relative
     padding-bottom: 56.25%
@@ -538,3 +539,23 @@ hr
       width: 100%
       height: 100%
       clip-path: inset(1px 1px)
+
+// Embeds
+// -------------
+
+// Responsive aspect-ratio container for iframes / embeds (video, maps, etc.).
+// Default 16:9; use ratio modifiers for other ratios.
+.ui-embed-container
+  width: 100%
+  aspect-ratio: 16 / 9
+  overflow: hidden
+  iframe, object, embed, video
+    width: 100%
+    height: 100%
+    border: 0
+    display: block
+    clip-path: inset(1px 1px)
+  &--4-3
+    aspect-ratio: 4 / 3
+  &--1-1
+    aspect-ratio: 1 / 1
