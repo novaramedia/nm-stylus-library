@@ -539,22 +539,20 @@ hr
     display: inline-block
     margin-right: 1rem
 
-  // Video Embeds
-
-  // @deprecated since v0.14.0 → use .ui-embed-container (also fixes this rule's accidental nesting under .ui-inline-list). Removed next release.
-  .ui-responsive-video-container
-    position: relative
-    padding-bottom: 56.25%
-    height: 0
-    overflow: hidden
-    max-width: 100%
-    iframe, object, embed
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 100%
-      clip-path: inset(1px 1px)
+// @deprecated since v0.14.0 → use .ui-embed-container. Removed next release. (Un-nested from .ui-inline-list, where it was previously scoped by accident.)
+.ui-responsive-video-container
+  position: relative
+  padding-bottom: 56.25%
+  height: 0
+  overflow: hidden
+  max-width: 100%
+  iframe, object, embed
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    clip-path: inset(1px 1px)
 
 // Embeds
 // -------------
