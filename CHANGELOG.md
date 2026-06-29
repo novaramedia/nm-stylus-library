@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Corrected xxl container size variable
 - `.text-overflow-ellipsis` now uses valid `white-space` + `overflow` + `text-overflow` (was invalid `overflow: ellipsis`)
+- `.grid-item` now explicitly declares `box-sizing: border-box` for resilience when imported without the full reset
 
 ### Deprecated
 
