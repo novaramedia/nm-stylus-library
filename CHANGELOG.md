@@ -7,10 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `$container-*` Stylus variables (`$container-xxl`…`$container-smax`) for use in `calc()` (and `@media` width queries for the length-valued ones; note `$container-s` is `98%`), mirroring the `--container-*` custom properties
+- `.ui-button--gray` button modifier
+- `.ui-border--gray-mid` border colour modifier
+- `.ui-rounded-box--nested` (4px) modifier for nested colour-blocked boxes
+- `.grid-row--nested` / `.grid-row--nested-tight` — canonical names for nested-grid negative margins
+- `.ui-embed-container` responsive aspect-ratio embed container (default 16:9) with `--4-3` / `--1-1` ratio modifiers
+
+### Changed
+
+- `.ui-tag` dot indicator sized in `em` (`0.7em`) instead of `1cap` for cross-browser consistency
+- `.ui-border`, `.ui-border-top`, `.ui-border-bottom`, `.ui-border-left` now use `--color-gray-light` (new grey) instead of `--color-gray-light-old`
+
 ### Fixed
 
 - Corrected xxl container size variable
+- `.text-overflow-ellipsis` now uses valid `white-space` + `overflow` + `text-overflow` (was invalid `overflow: ellipsis`)
 - `.grid-item` now explicitly declares `box-sizing: border-box` for resilience when imported without the full reset
+
+### Deprecated
+
+- `.ui-rounded-image` → use `.ui-rounded-box`; removed in v0.15.0
+- `.ui-rounded-box--large` → use `.ui-rounded-box--nested`; removed in v0.15.0
+- `.grid--nested` / `.grid--nested-tight` → use `.grid-row--nested(-tight)`; removed in v0.15.0
+- `.u-video-embed-container` / `.ui-responsive-video-container` → use `.ui-embed-container`; removed in v0.15.0
 
 ## [0.13.0] - 2026-02-09
 

@@ -47,9 +47,17 @@ function validateSynchronization() {
     }
     console.log('Stylus breakpoint variables are synchronized');
 
+    // Helper function: Convert camelCase to kebab-case (matches build-variables.js)
+    function camelToKebab(str) {
+      return str
+        .replace(/([a-z])([A-Z])/g, '$1-$2')  // lowercase letter followed by uppercase letter
+        .replace(/([a-zA-Z])([0-9])/g, '$1-$2')  // letter followed by digit
+        .toLowerCase();
+    }
+
     // Test: Check if Stylus file contains expected color CSS custom properties
     for (const [key, value] of Object.entries(variablesJson.colors)) {
-      const cssVar = key.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+      const cssVar = camelToKebab(key);
       const expectedLine = `--color-${cssVar}: ${value}`;
       if (!stylusContent.includes(expectedLine)) {
         console.error(`Stylus missing color variable: ${expectedLine}`);
@@ -57,6 +65,16 @@ function validateSynchronization() {
       }
     }
     console.log('Stylus color variables are synchronized');
+
+    // Test: Check if Stylus file contains expected container variables
+    for (const [key, value] of Object.entries(variablesJson.layout).filter(([k]) => k.startsWith('container'))) {
+      const expectedLine = `$${camelToKebab(key)} = ${value}`;
+      if (!stylusContent.includes(expectedLine)) {
+        console.error(`Stylus missing container variable: ${expectedLine}`);
+        process.exit(1);
+      }
+    }
+    console.log('Stylus container variables are synchronized');
 
     // Test: Check if JavaScript file can be required/imported
     const jsContent = fs.readFileSync(VARIABLES_JS_PATH, 'utf8');
