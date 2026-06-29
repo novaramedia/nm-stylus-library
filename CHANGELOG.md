@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.14.1] - 2026-06-29
+
 ### Fixed
 
 - Deprecation comments in `functions/grid-function-new.styl` used `//` line syntax, which (unlike the indentation-syntax modules) leaked into compiled CSS and broke consumers' CSS minifiers (`Unexpected '/'`). Converted to `/* … */` block comments. Documented the brace-syntax caveat in `CONVENTIONS.md`.
