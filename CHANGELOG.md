@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `$container-*` Stylus variables (`$container-xxl`…`$container-smax`) for use in `@media`/`calc`, mirroring the `--container-*` custom properties
+- `$container-*` Stylus variables (`$container-xxl`…`$container-smax`) for use in `calc()` (and `@media` width queries for the length-valued ones; note `$container-s` is `98%`), mirroring the `--container-*` custom properties
 - `.ui-button--gray` button modifier
 - `.ui-border--gray-mid` border colour modifier
 - `.ui-rounded-box--nested` (4px) modifier for nested colour-blocked boxes

@@ -42,7 +42,8 @@ function generateStylusContent(variables) {
   });
   content += '\n';
 
-  // Container width Stylus variables (mirror --container-* custom props; usable in @media / calc)
+  // Container width Stylus variables (mirror --container-* custom props). Usable in calc(),
+  // and in @media width queries where the value is a length — note $container-s is a percentage (98%).
   content += '// Container widths\n';
   Object.entries(variables.layout)
     .filter(([key]) => key.startsWith('container'))
