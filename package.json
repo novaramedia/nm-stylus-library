@@ -10,6 +10,9 @@
     "build": "echo \"Variables built successfully\"",
     "prerelease": "npm run build:variables",
     "release": "release-it",
+    "release:patch": "release-it patch --ci",
+    "release:minor": "release-it minor --ci",
+    "release:major": "release-it major --ci",
     "release:dry": "release-it --dry-run"
   },
   "repository": {
