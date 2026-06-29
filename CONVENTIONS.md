@@ -37,6 +37,23 @@ Mark any deprecated class / mixin / variable with a single-line comment
   ...
 ```
 
+> ⚠️ **Brace-syntax files use `/* … */`, not `//`.** In indentation-syntax
+> `.styl` files (most of `modules/`), `//` line comments are stripped at
+> compile time. But in files written in CSS-like **brace/`;` syntax** — notably
+> `functions/grid-function-new.styl` — a `//` comment placed directly above an
+> emitted rule **leaks into the compiled CSS**, where the `/` then breaks
+> consumers' CSS minifiers (postcss-selector-parser: "Unexpected '/'"). In those
+> files write the deprecation as a block comment, which compiles to a CSS comment
+> the minifier strips, and keep the text ASCII (use `->`, not `→`):
+>
+> ```stylus
+> /* @deprecated since vX.Y.Z: .old-name -> use .new-name. Removed: vA.B.0 */
+> .new-name, .old-name { ... }
+> ```
+>
+> (This caused the 0.14.0 → 0.14.1 build-break fix.) Still greppable on
+> `@deprecated since`.
+
 ### Why this format
 
 It is **greppable**, which lets the upstream/version-bump workflow find work
