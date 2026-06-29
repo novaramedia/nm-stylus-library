@@ -28,10 +28,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Deprecated
 
-- `.ui-rounded-image` → use `.ui-rounded-box`; removed next release
-- `.ui-rounded-box--large` → use `.ui-rounded-box--nested`; removed next release
-- `.grid--nested` / `.grid--nested-tight` → use `.grid-row--nested(-tight)`; removed next release
-- `.u-video-embed-container` / `.ui-responsive-video-container` → use `.ui-embed-container`; removed next release
+- `.ui-rounded-image` → use `.ui-rounded-box`; removed in v0.15.0
+- `.ui-rounded-box--large` → use `.ui-rounded-box--nested`; removed in v0.15.0
+- `.grid--nested` / `.grid--nested-tight` → use `.grid-row--nested(-tight)`; removed in v0.15.0
+- `.u-video-embed-container` / `.ui-responsive-video-container` → use `.ui-embed-container`; removed in v0.15.0
 
 ## [0.13.0] - 2026-02-09
 

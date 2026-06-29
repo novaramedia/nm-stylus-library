@@ -265,6 +265,7 @@ formElementBase() // This could be a class that is extended rather than a mixin
     border-color: var(--color-gray-mid)
     color: var(--color-black-soft)
     &:hover
+      background-color: transparent
       border-color: var(--color-gray-mid)
       color: var(--color-black-soft)
 
@@ -338,22 +339,28 @@ hr
 // migrate + remove the legacy tokens in a dedicated follow-up.
 // ===========================================================================
 .ui-border
-  border: 1px solid var(--color-gray-light)
+  --ui-border-color: var(--color-gray-light)
+  border: 1px solid var(--ui-border-color)
 
 .ui-border-bottom
-  border-bottom: 1px solid var(--color-gray-light)
+  --ui-border-color: var(--color-gray-light)
+  border-bottom: 1px solid var(--ui-border-color)
 
 .ui-border-top
-  border-top: 1px solid var(--color-gray-light)
+  --ui-border-color: var(--color-gray-light)
+  border-top: 1px solid var(--ui-border-color)
 
 .ui-border-left
-  border-left: 1px solid var(--color-gray-light)
+  --ui-border-color: var(--color-gray-light)
+  border-left: 1px solid var(--ui-border-color)
 
+// Colour modifiers override --ui-border-color, so they apply to any single-side
+// or all-side border helper above. Pair with a base helper (which sets width).
 .ui-border--black
-  border-color: var(--color-black-soft)
+  --ui-border-color: var(--color-black-soft)
 
 .ui-border--gray-mid
-  border-color: var(--color-gray-mid)
+  --ui-border-color: var(--color-gray-mid)
 
 @media screen and (max-width: $breakpoint-m)
   .ui-border--not-m
@@ -366,7 +373,7 @@ hr
 // Rounded Elements
 // -------------
 
-// @deprecated since v0.14.0 → use .ui-rounded-box (CSS-identical at default). Removed next release.
+// @deprecated since v0.14.0 → use .ui-rounded-box (CSS-identical at default). Removed: v0.15.0
 .ui-rounded-image
   --ui-border-radius: var(--corner-radius)
   border-radius: var(--ui-border-radius)
@@ -378,7 +385,7 @@ hr
   border-radius: var(--ui-border-radius)
   &--nested
     --ui-border-radius: var(--corner-radius-large)
-  // @deprecated since v0.14.0 → use --nested. Removed next release.
+  // @deprecated since v0.14.0 → use --nested. Removed: v0.15.0
   &--large
     --ui-border-radius: var(--corner-radius-large)
   &--top
@@ -539,7 +546,7 @@ hr
     display: inline-block
     margin-right: 1rem
 
-// @deprecated since v0.14.0 → use .ui-embed-container. Removed next release. (Un-nested from .ui-inline-list, where it was previously scoped by accident.)
+// @deprecated since v0.14.0 → use .ui-embed-container. Removed: v0.15.0 (Un-nested from .ui-inline-list, where it was previously scoped by accident.)
 .ui-responsive-video-container
   position: relative
   padding-bottom: 56.25%
