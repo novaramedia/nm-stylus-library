@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Corrected xxl container size variable
+- `.grid-item` now explicitly declares `box-sizing: border-box` for resilience when imported without the full reset
 
 ## [0.13.0] - 2026-02-09
 
