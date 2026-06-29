@@ -107,6 +107,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Implmentation of corner radius for buttons
 - Spacing unit for letter-spacing in the font size generator
+- List items (`ul`, `ol`) inside `.text-copy` now use `--font-family-serif` matching paragraph copy
 
 ## [0.10.0] - 2025-04-16
 
