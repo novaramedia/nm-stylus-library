@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- CI workflow (`npm test` runs on all PRs and pushes to `main`)
+- `validate:stylus` script — compiles `index.styl` with `grid-maker()` calls and asserts no `//` leaks into CSS output
+
+### Fixed
+
+- `//` comments inside `@css {}` block in `grid-function-new.styl` converted to `/* */` — `//` is invalid CSS and was breaking the downstream minifier
+
 ## [0.14.0] - 2026-06-29
 
 ### Added
