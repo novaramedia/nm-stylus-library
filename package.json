@@ -3,9 +3,10 @@
   "version": "0.14.0",
   "description": "",
   "scripts": {
-    "test": "npm run validate:variables",
+    "test": "npm run validate:variables && npm run validate:stylus",
     "build:variables": "node scripts/build-variables.js",
     "validate:variables": "node scripts/validate-variables.js",
+    "validate:stylus": "node scripts/validate-stylus.js",
     "prebuild": "npm run build:variables",
     "build": "echo \"Variables built successfully\"",
     "prerelease": "npm run build:variables",
@@ -26,7 +27,8 @@
   },
   "homepage": "https://github.com/novaramedia/nm-stylus-library#readme",
   "devDependencies": {
+    "@release-it/keep-a-changelog": "^7.0.0",
     "release-it": "^19.0.4",
-    "@release-it/keep-a-changelog": "^7.0.0"
+    "stylus": "^0.64.0"
   }
 }
