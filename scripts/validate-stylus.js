@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
 const path = require('path');
 const stylus = require('stylus');
 
 const ROOT = path.join(__dirname, '..');
-const ENTRY = path.join(ROOT, 'index.styl');
+const VIRTUAL_FILENAME = path.join(ROOT, '__validate__.styl');
 
 // Wrap entry with grid-maker calls so @css{} blocks are emitted and testable.
 // Consuming projects call these at each breakpoint; without them the grid
 // passthrough blocks are never rendered and // leaks go undetected.
 const src = [
-  `@import "${ENTRY}"`,
+  `@import "index.styl"`,
   `grid-maker('xl')`,
   `grid-maker('l')`,
   `grid-maker('m')`,
@@ -21,7 +20,7 @@ const src = [
 console.log('Compiling index.styl (with grid-maker calls)...\n');
 
 stylus(src)
-  .set('filename', ENTRY)
+  .set('filename', VIRTUAL_FILENAME)
   .set('paths', [ROOT])
   .render((err, css) => {
     if (err) {
