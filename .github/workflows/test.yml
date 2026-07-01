@@ -1,0 +1,25 @@
+name: Validate design tokens & Stylus build
+
+# Checks variables.json/.styl/.js stay in sync and that index.styl
+# compiles cleanly with no invalid CSS leaking into the output.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    name: Validate variables & compile Stylus
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run validation suite
+        run: npm test
