@@ -34,7 +34,7 @@ stylus(src)
     const lines = css.split('\n');
     const leaks = lines
       .map((line, i) => ({ line: i + 1, text: line }))
-      .filter(({ text }) => /^\s*\/\//.test(text));
+      .filter(({ text }) => /(^|[^:])\/\//.test(text));
 
     if (leaks.length > 0) {
       console.error('Invalid // comments found in CSS output (use /* */ inside @css {} blocks):\n');
