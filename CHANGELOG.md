@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI workflow (`npm test` runs on all PRs and pushes to `main`)
 - `validate:stylus` script — compiles `index.styl` with `grid-maker()` calls and asserts no `//` leaks into CSS output
 
+### Changed
+
+- Release tooling upgraded to `release-it` 21, clearing all `npm audit` vulnerabilities; releasing now needs Node 22.22+ or 24.15+, and CI runs on Node 24
+
 ## [0.14.1] - 2026-06-29
 
 ### Fixed
